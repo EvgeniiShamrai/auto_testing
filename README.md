@@ -17,3 +17,6 @@ Project to study writing autotests in python
 * find and run all the tests in the file: **pytest test_user_interface.py**
 * find a test named "test_register_new_user_parametrized" in the specified file in the specified directory and execute: **pytest scripts/drafts.py::test_register_new_user_parametrized**
 
+# Running pytest tests via bash terminal
+* Display the text output by the print() command: **pytest -s <name_executable_file.py>**
+* Display the text output by the print() command with additional information: **pytest -s -v <name_executable_file.py>**
