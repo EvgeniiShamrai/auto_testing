@@ -24,6 +24,9 @@ Project to study writing autotests in python
 * Running all tests not marked as `smoke`: **pytest -s -v -m "not smoke" <name_executable_file.py>**
 * To run tests with different labels, you can use a logical OR: **pytest -s -v -m "smoke or regression" <name_executable_file.py>** 
 * To run only smoke tests for Windows 10, you need to use the logical AND: *pytest -s -v -m "smoke and win10" <name_executable_file.py>**
+* A command to run an expected failed test with the ability to display the messages specified in the reason parameter: **pytest -rx -v <name_executable_file.py>**
+
+
 
 # Skipping tests
 To skip the test, use the decorator @pytest.mark.skip. At the same time, you do not need to make changes to the pytest.ini file
