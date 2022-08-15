@@ -25,7 +25,14 @@ Project to study writing autotests in python
 * To run tests with different labels, you can use a logical OR: **pytest -s -v -m "smoke or regression" <name_executable_file.py>** 
 * To run only smoke tests for Windows 10, you need to use the logical AND: *pytest -s -v -m "smoke and win10" <name_executable_file.py>**
 
-
+# Skipping tests
+To skip the test, use the decorator @pytest.mark.skip. At the same time, you do not need to make changes to the pytest.ini file
+```
+@pytest.mark.skip
+    def test_guest_should_see_login_link(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, "#login_link")
+```
 
 # Marking of the test
 It is necessary to create a test.ini file in the root directory of the project.   In the file for explicitly prescribe the marking of tests.
