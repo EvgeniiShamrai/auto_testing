@@ -21,11 +21,25 @@ Project to study writing autotests in python
 * Display the text output by the print() command: **pytest -s <name_executable_file.py>**
 * Display the text output by the print() command with additional information: **pytest -s -v <name_executable_file.py>**
 * Running the test with the desired marking: **pytest -s -v -m <name_marking_test> <name_executable_file.py>** -m running the test with the desired marking
+* Running all tests not marked as `smoke`: **pytest -s -v -m "not smoke" <name_executable_file.py>**
+* To run tests with different labels, you can use a logical OR: **pytest -s -v -m "smoke or regression" <name_executable_file.py>** 
+* To run only smoke tests for Windows 10, you need to use the logical AND: *pytest -s -v -m "smoke and win10" <name_executable_file.py>**
+
 
 
 # Marking of the test
 It is necessary to create a test.ini file in the root directory of the project.   In the file for explicitly prescribe the marking of tests.
-```[pytest]
+``` 
+[pytest]
 markers =
     smoke: marker for smoke tests
-    regression: marker for regression tests```
+    regression: marker for regression tests
+```
+For a test that has several markings in the pytest.ini file, you must specify them to register
+```
+[pytest]
+markers =
+    smoke: marker for smoke tests
+    regression: marker for regression tests
+    win10
+```
