@@ -25,7 +25,7 @@ Project to study writing autotests in python
 * To run tests with different labels, you can use a logical OR: **pytest -s -v -m "smoke or regression" <name_executable_file.py>** 
 * To run only smoke tests for Windows 10, you need to use the logical AND: *pytest -s -v -m "smoke and win10" <name_executable_file.py>**
 * A command to run an expected failed test with the ability to display the messages specified in the reason parameter: **pytest -rx -v <name_executable_file.py>**
-
+* Running tests from the command line using another browser: **pytest -s -v --browser_name=<name_browser> <name_executable_file.py>** 
 
 
 # Skipping tests
