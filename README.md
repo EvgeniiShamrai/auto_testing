@@ -26,7 +26,7 @@ Project to study writing autotests in python
 * To run only smoke tests for Windows 10, you need to use the logical AND: *pytest -s -v -m "smoke and win10" <name_executable_file.py>**
 * A command to run an expected failed test with the ability to display the messages specified in the reason parameter: **pytest -rx -v <name_executable_file.py>**
 * Running tests from the command line using another browser: **pytest -s -v --browser_name=<name_browser> <name_executable_file.py>** 
-
+* Running tests from the command line change language site: **pytest -v --browser_name=<name_browser> --language=en <name_executable_file.py>**
 
 # Skipping tests
 To skip the test, use the decorator @pytest.mark.skip. At the same time, you do not need to make changes to the pytest.ini file
@@ -58,3 +58,20 @@ Install plugin pytest-rerunfailures in venv: **pip install pytest-rerunfailures*
 To specify the number of restarts for each of the failed tests, you need to add a parameter to the command line: **"--reruns n", where n is the number of restarts.**
 To shorten the log with the test results, use the parameter in the startup command **"--tb=line"**
 Example of a command to restart tests: **pytest -v --tb=line --reruns 1 --browser_name=<name_browser> <name_executable_file.py>**
+
+# Set the locale for Chrom and Firefox webdrivers
+To specify the browser language using WebDriver, use the Options class and the add_experimental_option method, as shown in the example below:
+```python
+from selenium.webdriver.chrome.options import options
+
+options = Options()
+options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
+browser = webdriver.Chrome(options=options)
+```
+For the Firefox browser, the declaration of the desired language will look a little different:
+```python
+
+az = webdriver.Firefox Profile()
+fp.set_preference("intl.accept_languages", user_language)
+browser = webdriver.Firefox(firefox_profile=fp)
+```
