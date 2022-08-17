@@ -53,3 +53,8 @@ markers =
     regression: marker for regression tests
     win10
 ```
+# Rerun test
+Install plugin pytest-rerunfailures in venv: **pip install pytest-rerunfailures**
+To specify the number of restarts for each of the failed tests, you need to add a parameter to the command line: **"--reruns n", where n is the number of restarts.**
+To shorten the log with the test results, use the parameter in the startup command **"--tb=line"**
+Example of a command to restart tests: **pytest -v --tb=line --reruns 1 --browser_name=<name_browser> <name_executable_file.py>**
