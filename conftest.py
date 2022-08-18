@@ -1,7 +1,6 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.firefox.service import Service
 
 
 def pytest_addoption(parser):
@@ -14,7 +13,6 @@ def pytest_addoption(parser):
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
-    print(user_language)
     if browser_name == 'chrome':
         options = Options()
         # чтобы указать язык браузера с помощью WebDriver, используйте класс Options и метод add_experimental_option
